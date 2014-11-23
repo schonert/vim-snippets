@@ -1,0 +1,25 @@
+# Basics
+
+# Angular module
+snippet ng
+	angular.module('${1}', [${2}]);
+
+# Angular module method - 1 param
+snippet ng.
+	angular.module('${1}').${2:run}([${3}, function(${4}) {
+		${5}
+	}]);
+
+# Anuglar module method - 2 params
+snippet ng..
+	angular.module('${1}').${2:controller}('${3}', [${4}, function(${5}) {
+		${6}
+	}]);
+
+# Angular component
+snippet ngcomp
+	(function() {
+		"use strict";
+
+		${1:ng.. }
+	})();
