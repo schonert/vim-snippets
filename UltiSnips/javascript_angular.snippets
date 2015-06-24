@@ -12,56 +12,34 @@ beforeEach(inject(function($1) {
 }));
 endsnippet
 
-snippet aconf "angular config" i
-config(function($1) {
-	$0
-});
+snippet ngcomp "angular component" i
+(function() {
+	"use strict";
+
+	${1:ng.. }
+})();
 endsnippet
 
-snippet acont "angular controller" i
-controller('${1:name}', ['${2:param_annotation}', function(${3:param}) {
-	$0
-}]);
+snippet ng "angular method - single" i
+angular.module('${1}', [$2]);
 endsnippet
 
-snippet aconts "angular controller with scope" i
-controller('${1:name}', ['$scope', function($scope) {
+snippet ng. "angular method - single" i
+angular.module('${1}').${2:service}($2);
+
+$2.$inject = [${3/([\w$\.]+)/'$0'/g}];
+
+function $2($3) {
 	$0
-}]);
+}
 endsnippet
 
-snippet adir "angular directive" i
-directive('${1:name}', ['${2:param_annotation}', function(${3:param}) {
-	$0
-}]);
-endsnippet
+snippet ng.. "angular method - double" i
+angular.module('${1}').${2:service}('$3', ${4:$3${2/\w+\s*/\u$0/}});
 
-snippet adirs "angular directive with scope" i
-directive('${1:name}', ['$scope', function($scope) {
-	$0
-}]);
-endsnippet
+$4.$inject = [${5/([\w$\.]+)/'$0'/g}];
 
-snippet afact "angular factory" i
-factory('${1:name}', ['${2:param_annotation}', function(${3:param}) {
+function $4($5) {
 	$0
-}]);
-endsnippet
-
-snippet afacts "angular factory with scope" i
-factory('${1:name}', ['$scope', function($scope) {
-	$0
-}]);
-endsnippet
-
-snippet aserv "angular service" i
-service('${1:name}', ['${2:param_annotation}', function(${3:param}) {
-	$0
-}]);
-endsnippet
-
-snippet aservs "angular service" i
-service('${1:name}', ['$scope', function($scope) {
-	$0
-}]);
+}
 endsnippet
